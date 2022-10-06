@@ -24,18 +24,12 @@ const pokemonOl = document.getElementById('pokemonOl')
 
 fetch(url)
     .then((response) => response.json())
-    .then((jasonBody) => {
-        console.log (jasonBody)
-    }) 
-    
-    
-    
-    // .then((jasonBody) => jasonBody.results)
-    // .then((pokemonList) => {
-    //     for (let i = 0; i < pokemonList.length; i++) {
-    //         const pokemon = pokemonList[i]
-    //         pokemonOl.innerHTML = convertPokemonToLi(pokemon)
-    //     }
-    // })
+    .then((jasonBody) => jasonBody.results)
+    .then((pokemonList) => {
+        for (let i = 0; i < pokemonList.length; i++) {
+            const pokemon = pokemonList[i]
+            pokemonOl.innerHTML = convertPokemonToLi(pokemon)
+        }
+    })
 
-    // .catch((error) => console.error(error))
+    .catch((error) => console.error(error))
