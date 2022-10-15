@@ -1,0 +1,100 @@
+body{
+    background-color: #c1c1c1;
+}
+
+.box-content {
+    padding: 1rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: 90vh;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.moldura{
+    min-height: 70vh;
+    max-height: 90vh;
+    background-color: #8cd850;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-top {
+    display: flex;
+    justify-content:space-around;
+    padding: 1rem;
+    height: 14rem;
+}
+
+.boxName{
+    text-transform: uppercase;
+    text-shadow: 1rem;
+    font-weight: bold;
+}
+
+.namePoke{
+    color: rgb(255, 255, 255);
+}
+
+.boxNumber{
+
+}
+
+.numberPoke{
+    color: rgb(255, 255, 255);
+}
+
+.box-a {
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.box-imagem{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -12px;
+    width: 50vh;
+}
+.pokeImg{
+    width: 50%;
+
+}
+
+.line-3 {
+    background-color: #f1f1f1;
+    border-radius: 2rem 2rem 1rem 1rem ;
+    margin: 0;
+    flex: 1;
+    
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 426px){
+    .box-content {
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+        height: 90vh;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }  
+    /* .moldura {
+        align-items: center;
+    } */
+}
+
+/* .box-content .box-imagem{
+    min-height: 100%;
+    max-height: 100%;
+} */
+
+/* .name {
+    text-transform: uppercase;
+    border-radius: 1rem;
+    background-color: aqua;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+} */
