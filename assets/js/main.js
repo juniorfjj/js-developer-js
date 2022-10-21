@@ -20,18 +20,32 @@ function convertPokemonToLi(pokemon) {
 }
 
 // constante que recebe o elemento OL do index
-const pokemonOl = document.getElementById('pokemonOl')
 
-pokeApi.getPokemons().then((pokemons = []) => {
-    const newHtml = pokemons.map(convertPokemonToLi).join ('')
-    pokemonOl.innerHTML = newHtml
-    
+const pokemonOl = document.getElementById('pokemonOl')
+const loadMoreButton = document.getElementById('loadMoreButton')
+var offset = 0
+const limit = 10
+
+function loadPokemonItens (offset, limit) {
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        const newHtml = pokemons.map(convertPokemonToLi).join ('')
+        pokemonOl.innerHTML += newHtml
+    })   
+}
+
+loadPokemonItens (offset, limit)
+
+loadMoreButton.addEventListener ('click', ()=> {
+    offset += limit
+    loadPokemonItens (offset, limit)
+})
+
  
 //  const newList = pokemons.map(convertPokemonToLi (pokemon))
 
 //  const newHtml = newList.join ('')
 //  pokemonOl.innerHTML += newHtml
-})
+
 
     // const listItens = []
     //     for (let i = 0; i < pokemonList.length; i++) {

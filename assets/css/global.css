@@ -1,5 +1,5 @@
 
-
+/* i */
 .normal {
     background-color: #a6a877;
 }
@@ -48,8 +48,8 @@
     background-color: #8cd850;
 }
 
-.eletric {
-    background-color: #fce53d;
+.electric {
+    background-color: #ffe41b;
 }
 
 .psychic {
@@ -66,6 +66,10 @@
 
 .dark {
     background-color: #866450;
+}
+
+.fairy {
+    background-color: #df90d4;
 }
 
 
@@ -159,3 +163,11 @@
     border: none;
 }
 
+@media screen and (min-width: 360px) and (max-width: 851px){
+    .pokemons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+    }}
