@@ -3,7 +3,7 @@
 
 function convertPokemonToLi(pokemon) {
     return `
-    <li class="pokemon ${pokemon.type}">
+    <li class="pokemon ${pokemon.type}" onclick = "openDetails ('${pokemon.name}','${pokemon.type}')" >
         <span class="number">#${pokemon.number}</span>
         <span class="name">${pokemon.name}</span>
             
@@ -40,6 +40,10 @@ loadMoreButton.addEventListener ('click', ()=> {
     loadPokemonItens (offset, limit)
 })
 
+function openDetails (name, type) {
+    console.log(name)
+    document.location.href = `${document.location.href.split("/")[0]}/details.html?name=${name}&type=${type}`
+}
  
 //  const newList = pokemons.map(convertPokemonToLi (pokemon))
 
