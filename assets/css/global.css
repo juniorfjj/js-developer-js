@@ -1,5 +1,5 @@
 
-
+/* i */
 .normal {
     background-color: #a6a877;
 }
@@ -163,3 +163,11 @@
     border: none;
 }
 
+@media screen and (min-width: 360px) and (max-width: 851px){
+    .pokemons {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+    }}
