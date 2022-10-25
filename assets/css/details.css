@@ -9,6 +9,7 @@ body{
     height: 90vh;
     width: 50%;
     box-sizing: border-box;
+    display: flex;
 }
 
 .moldura{
