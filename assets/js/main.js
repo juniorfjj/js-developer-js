@@ -2,6 +2,7 @@
 // Função que define o padrão do elemento (li) a ser incluído na Lista OL do index
 
 function convertPokemonToLi(pokemon) {
+    console.log(pokemon)
     return `
     <li class="pokemon ${pokemon.type}" onclick = "openDetails ('${pokemon.name}','${pokemon.type}')" >
         <span class="number">#${pokemon.number}</span>
@@ -40,9 +41,9 @@ loadMoreButton.addEventListener ('click', ()=> {
     loadPokemonItens (offset, limit)
 })
 
-function openDetails (name, type) {
-    console.log(name)
-    document.location.href = `${document.location.href.split("/")[0]}/details.html?name=${name}&type=${type}`
+function openDetails (id) {
+    console.log(id)
+    document.location.href = `${document.location.href.split("/")[0]}/details.html?id=${id}`
 }
  
 //  const newList = pokemons.map(convertPokemonToLi (pokemon))
@@ -59,3 +60,9 @@ function openDetails (name, type) {
     //     }
     // })
 
+
+
+    // NOVA PÁGINA
+
+
+   
