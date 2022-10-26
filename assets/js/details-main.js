@@ -2,58 +2,117 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
-// console.log(params)
+console.log(params)
 
-const pokemonDetalhamento = document.getElementById('box-content')
+const pokemonDetalhamento = document.getElementById('moldura')
+const namePoke = document.getElementById("name")
+const numberPoke = document.getElementById("number")
+const pokeImg = document.getElementById("img")
+const pokeType = document.getElementById("types")
+
+
 // console.log(pokemonDetalhamento)
-
-const pokeDetail = {};
-
 const url = `https://pokeapi.co/api/v2/pokemon/${params.id}`
 
 
-pokeDetail.getDetais = () => {
-    fetch(url)
-    .then((response) => response.json())
-    .then(convertPokemonsDetailsPage)
-    .then(loadPokemonDetailPage)
+async function getData() {
+    const pokeDetail = await fetch(url);
+
+    const pokemon = await pokeDetail.json();
+
+
+    let name = `<span class="namePoke" id="name">${pokemon.name}</span>`
+    let number = `<span class="numberPoke" id="number">#${pokemon.id}</span>`
+    let photo = `<img class="pokeImg" id="img"
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
+    alt=${pokemon.name}>`
+
+    const getTypes = pokemon.types.map((typeSlot) => typeSlot.type.name)
+    const [getType] = getTypes
+    // pokemon.types = ${pokemon.types.map((type) => `<span class="type ${type}">${type}</span>`.join('')
+    // // pokemon.type = type
+    // //     const insertType = ${pokemon.types.map((type) => `<span class="type">grass</span>`
+
+    // //     <ol class="types">
+    // //     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}    
+    // // </ol>
+
+    let type = `<span class="${getType}">${getType}</span>` 
+
+
+    
+    console.log(getTypes)
+    console.log(getType)
+
+
+    namePoke.innerHTML += name
+    numberPoke.innerHTML += number
+    pokeImg.innerHTML += photo
+    pokeType.innerHTML += type
+
+
 }
 
-pokeDetail.getDetais ()
-  
+getData();
 
-// console.log (pokeDetail.getDetais)
 
-class Pokemon {
-    number;
-    name;
-    type;
-    types = [];
-    photo;
-}
 
-function convertPokemonsDetailsPage (pokeDetail){
-    const pokemon = new Pokemon()
-    pokemon.number = pokeDetail.id
-    pokemon.name = pokeDetail.name
-    // console.log(pokeDetail)
 
-    const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
-    const [type] = types
 
-    pokemon.types = types
-    pokemon.type =type
 
-    // pokemon.photo = pokeDetail.sprites.other.official_artwork.front_default
+// fetch(url)
+// .then((response) => response.json())
+// .then((detailPokemon) => {
 
-    return pokemon
+//     for (let i = 0; i < detailPokemon.length; i++) {
+//         const pokemon = detailPokemon[i];
+//         detailPokemon.innerHTML += convertPokemonToPageDetail(pokemon)  
+//     }
+// })
 
-}
+
+// pokemonDetalhamento.innerHTML += `${response.name}`  
+// pokeDetail.getDetais = () => {
+//     fetch(url)
+//     .then((response) => response.json())
+//     // .then(convertPokemonsDetailsPage)
+//     // .then(loadPokemonDetailPage)
+// }
+
+// pokeDetail.getDetais ()
+
+
+// console.log (response)
+
+// class Pokemon {
+//     number;
+//     name;
+//     type;
+//     types = [];
+//     photo;
+// }
+
+// function convertPokemonsDetailsPage (pokeDetail){
+//     const pokemon = new Pokemon()
+//     pokemon.number = pokeDetail.id
+//     pokemon.name = pokeDetail.name
+//     // console.log(pokeDetail)
+
+//     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
+//     const [type] = types
+
+//     pokemon.types = types
+//     pokemon.type =type
+
+// pokemon.photo = pokeDetail.sprites.other.official_artwork.front_default
+
+//     return pokemon
+
+// }
 
 // console.log(convertPokemonsDetailsPage (pokeDetail))
 
 function convertPokemonToPageDetail(pokemon) {
-    console.log(pokemon)
     return `<div class="moldura">
 
     <section class="line-top">
@@ -176,18 +235,18 @@ function convertPokemonToPageDetail(pokemon) {
 
 
 </div>`
-  
+
 }
 
 
-function loadPokemonDetailPage (pokemon) {
-    console.log(pokemon)
-    pokeDetail.getPokemons(pokemon)
-    .then((pokemon = []) => {
-        const newHtml = pokemon.map(convertPokemonsDetailsPage).join ('')
-        pokemonDetalhamento.innerHTML += newHtml
-    })   
-}
+// function loadPokemonDetailPage (pokemon) {
+//     console.log(pokemon)
+//     pokeDetail.getPokemons(pokemon)
+//     .then((pokemon = []) => {
+//         const newHtml = pokemon.map(convertPokemonsDetailsPage).join ('')
+//         pokemonDetalhamento.innerHTML += newHtml
+//     })
+// }
 
 
 
@@ -202,4 +261,3 @@ function loadPokemonDetailPage (pokemon) {
 //         .then((detailRequest)=> Promise.all(detailRequest))
 //         .then((pokemonsDetails2) => pokemonsDetails2)
 // }
-// console.log (pokeDetail)
