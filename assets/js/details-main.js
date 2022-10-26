@@ -2,23 +2,26 @@
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 
-console.log(params)
+// console.log(params)
 
-const pokemonDetalhamento = document.getElementById('moldura')
+const pokemonDetalhamento = document.querySelector('.moldura')
 const namePoke = document.getElementById("name")
 const numberPoke = document.getElementById("number")
 const pokeImg = document.getElementById("img")
 const pokeType = document.getElementById("types")
+const infoStats = document.getElementById("info-stats");
+const infoAbilities = document.getElementById("info-abilities");
 
 
-// console.log(pokemonDetalhamento)
 const url = `https://pokeapi.co/api/v2/pokemon/${params.id}`
+const infoTabUrl = `https://pokeapi.co/api/v2/pokemon-species/${params.id}/`
 
 
 async function getData() {
     const pokeDetail = await fetch(url);
 
     const pokemon = await pokeDetail.json();
+    // console.log(pokemon)
 
 
     let name = `<span class="namePoke" id="name">${pokemon.name}</span>`
@@ -27,237 +30,77 @@ async function getData() {
     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
     alt=${pokemon.name}>`
 
-    const getTypes = pokemon.types.map((typeSlot) => typeSlot.type.name)
-    const [getType] = getTypes
-    // pokemon.types = ${pokemon.types.map((type) => `<span class="type ${type}">${type}</span>`.join('')
-    // // pokemon.type = type
-    // //     const insertType = ${pokemon.types.map((type) => `<span class="type">grass</span>`
+    const getTypes = pokemon.types.map((typeSlot) => `<span class="type" id= ${typeSlot.type.name}>${typeSlot.type.name}</span>`).join('')
+    const getTypeColor = pokemon.types[0].type.name
 
-    // //     <ol class="types">
-    // //     ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}    
-    // // </ol>
+    const typeColor = `<div class="moldura" id=${getTypeColor}></div>`;
 
-    let type = `<span class="${getType}">${getType}</span>` 
+    var liInfoStatsHP = pokemon.stats[0].base_stat
+    var liInfoStatsAttack = pokemon.stats[1].base_stat
+    var liInfoStatsDefense = pokemon.stats[2].base_stat
+    var liInfoStatsSpeed = pokemon.stats[5].base_stat
 
-
+    const statsInsert = 
     
-    console.log(getTypes)
-    console.log(getType)
+    `<ol class="stats">
+    <li>
+        HP : ${liInfoStatsHP}
+    </li>
+    <li>
+        attack : ${liInfoStatsAttack}
+    </li>
+    <li>
+        defense : ${liInfoStatsDefense}
+    </li>
+    <li>
+        speed : ${liInfoStatsSpeed}
+    </li>
+    </ol>`
+
+
+
+    // console.log(getTypes)
+    // console.log(getTypeColor)
 
 
     namePoke.innerHTML += name
     numberPoke.innerHTML += number
     pokeImg.innerHTML += photo
-    pokeType.innerHTML += type
+    pokeType.innerHTML += getTypes
+    infoStats.innerHTML += statsInsert
+
+
+
+
+    // Mudando a cor do "plano de fundo"
+    pokemonDetalhamento.setAttribute('id', getTypeColor)
 
 
 }
-
 getData();
 
 
+// Exibindo informações na TAB
+
+// Buscando as áreas onde as informações são exibidas na página
+
+const infoAbout = document.getElementById("info-about");
 
 
 
+async function getInfosTab() {
+    const pokeInfos = await fetch(infoTabUrl);
+    const infoAssets = await pokeInfos.json();
 
-// fetch(url)
-// .then((response) => response.json())
-// .then((detailPokemon) => {
+    var textInfoAbout = `<span class="about">${infoAssets.flavor_text_entries[0].flavor_text}</span>`
 
-//     for (let i = 0; i < detailPokemon.length; i++) {
-//         const pokemon = detailPokemon[i];
-//         detailPokemon.innerHTML += convertPokemonToPageDetail(pokemon)  
-//     }
-// })
+    console.log(infoAssets.flavor_text_entries[0].flavor_text)
 
 
-// pokemonDetalhamento.innerHTML += `${response.name}`  
-// pokeDetail.getDetais = () => {
-//     fetch(url)
-//     .then((response) => response.json())
-//     // .then(convertPokemonsDetailsPage)
-//     // .then(loadPokemonDetailPage)
-// }
+    infoAbout.innerHTML += textInfoAbout
 
-// pokeDetail.getDetais ()
-
-
-// console.log (response)
-
-// class Pokemon {
-//     number;
-//     name;
-//     type;
-//     types = [];
-//     photo;
-// }
-
-// function convertPokemonsDetailsPage (pokeDetail){
-//     const pokemon = new Pokemon()
-//     pokemon.number = pokeDetail.id
-//     pokemon.name = pokeDetail.name
-//     // console.log(pokeDetail)
-
-//     const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
-//     const [type] = types
-
-//     pokemon.types = types
-//     pokemon.type =type
-
-// pokemon.photo = pokeDetail.sprites.other.official_artwork.front_default
-
-//     return pokemon
-
-// }
-
-// console.log(convertPokemonsDetailsPage (pokeDetail))
-
-function convertPokemonToPageDetail(pokemon) {
-    return `<div class="moldura">
-
-    <section class="line-top">
-
-        <div class="buttom-back">
-            <a href="index.html"><i class="bi bi-arrow-left"></i></a>
-        </div>
-
-        <div class="favorite-heart">
-            <i class="bi bi-heart"></i>
-        </div>
-
-    </section>
-
-    <section class="line-1">
-
-        <div class="info-top">
-
-            <div class="boxName">
-                <span class="namePoke">${pokemon.name}</span>
-            </div>
-
-            <div class="boxNumber">
-                <span class="numberPoke">#001</span>
-            </div>
-
-        </div>
-
-        <div class="info-med">
-            <div class="types">
-                <span class="type">grass</span>
-                <span class="type">poison</span>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="line-2">
-
-        <div class="box-imagem">
-            <img class="pokeImg"
-                src=
-                alt=>
-        </div>
-
-
-    </section>
-
-    <section class="line-3">
-
-        <div class="info-down">
-            
-            <div class="tab-buttons">
-                <button class="about-button">
-                    Sobre
-                </button>
-
-                <button class="stats-button">
-                    Estatísticas
-                </button>
-
-                <!-- <button class="evolutions-button">
-                    Evoluções
-                </button> -->
-
-                <button class="abilities-buttons">
-                    Habilidades
-                </button>
-            </div>
-
-            <section class="infos-tabs">
-                <div class="info-about">
-                    <code>
-                        A strange seed was
-                        planted on its
-                        back at birth.
-                        The plant sprouts
-                        and grows with
-                        this POKéMON.
-                    </code>
-                </div>
-
-                <div class="info-stats">
-                    <ol class="stats">
-                        <li>
-                            HP : 45
-                        </li>
-                        <li>
-                            attack : 49
-                        </li>
-                        <li>
-                            defense : 49
-                        </li>
-                        <li>
-                            speed : 45
-                        </li>
-                    </ol>
-
-                </div>
-                
-                <div class="info-abilities">
-                    <ol class="abilities">
-                        <li>
-                            overgrow
-                        </li>
-                        <li>
-                            chlorophyll
-                        </li>
-                    </ol>
-                </div>
-
-            </section>
-
-           
-
-        </div>
-
-
-    </section>
-
-
-</div>`
 
 }
+getInfosTab();
 
 
-// function loadPokemonDetailPage (pokemon) {
-//     console.log(pokemon)
-//     pokeDetail.getPokemons(pokemon)
-//     .then((pokemon = []) => {
-//         const newHtml = pokemon.map(convertPokemonsDetailsPage).join ('')
-//         pokemonDetalhamento.innerHTML += newHtml
-//     })
-// }
-
-
-
-
-
-// pokeDetail.getPokemons = (id) => {
-//     const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-//     return fetch(url)
-//         .then((response) => response.json())
-//         .then((jasonBody) => jasonBody.results)
-//         .then((pokemons)=> pokemons.map(pokeDetail.getPokemonDetail))
-//         .then((detailRequest)=> Promise.all(detailRequest))
-//         .then((pokemonsDetails2) => pokemonsDetails2)
-// }

@@ -1,6 +1,75 @@
-.fire {
+#normal {
+    background-color: #a6a877;
+}
+
+#fighting {
+    background-color: #a95644;
+}
+
+#flying {
+    background-color: #79a4ff;
+}
+
+#poison {
+    background-color: #a040a0;
+}
+
+#ground {
+    background-color: #e0c068;
+}
+
+#rock {
+    background-color: #cfbd73;
+}
+
+#bug {
+    background-color: #cddd21;
+}
+
+#ghost {
+    background-color: #7773d2;
+}
+
+#steel {
+    background-color: #c4c2d8;
+}
+
+#fire {
     background-color: #fb5643;
 }
+
+#water {
+    background-color: #55aefe;
+}
+
+#grass {
+    background-color: #8cd850;
+}
+
+#electric {
+    background-color: #fce53d;
+}
+
+#psychic {
+    background-color: #f562b2;
+}
+
+#ice {
+    background-color: #95f1fe;
+}
+
+#dragon {
+    background-color: #8975fb;
+}
+
+#dark {
+    background-color: #866450;
+}
+
+#fairy {
+    background-color: #8975fb;
+}
+
 
 body{
     background-color: #c1c1c1;
@@ -135,39 +204,55 @@ body{
     color: rgb(44, 139, 184);
 }
 
-.info-about {
+#info-about {
     display: none;
+    text-transform: capitalize;
+    justify-content: left;
+}
+
+.about {
+    padding: 0rem;
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    text-align: justify;
 }
 
 .infos-tabs {
     padding: 1rem;
 }
 
-.info-stats {
+#info-stats {
     text-transform: capitalize;
     justify-content: left;
+    display: none;
     
 }
 
 .stats {
     list-style: none;
     padding: 0rem;
-    font-weight: bold;
-    color: #5f5f5f;
-    display: none;
+    /* font-weight: bold; */
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    
 }
 
-.info-abilities {
+#info-abilities {
     text-transform: capitalize;
     justify-content: left;
+    display: none;
 }
 
 .abilities {
     list-style: none;
     padding: 0rem;
-    font-weight: bold;
-    color: #5f5f5f;
-    display: none;
+    /* font-weight: bold; */
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    
 }
 
    /* Media-querry */
