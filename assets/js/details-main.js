@@ -111,7 +111,7 @@ async function getInfosTab() {
     const pokeInfos = await fetch(infoTabUrl);
     const infoAssets = await pokeInfos.json();
 
-    var textInfoAbout = `<span class="about">${infoAssets.flavor_text_entries[0].flavor_text}</span>`
+    var textInfoAbout = `<span class="about">${infoAssets.flavor_text_entries[0].flavor_text.replaceAll('', ' ')}</span>`
 
     infoAbout.innerHTML += textInfoAbout
 
