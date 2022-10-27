@@ -96,10 +96,6 @@ getData();
 
 
 
-
-
-
-
 // Exibindo informações na TAB
 
 // Buscando as áreas onde as informações são exibidas na página
