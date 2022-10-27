@@ -1,0 +1,289 @@
+#normal {
+    background-color: #a6a877;
+}
+
+#fighting {
+    background-color: #a95644;
+}
+
+#flying {
+    background-color: #79a4ff;
+}
+
+#poison {
+    background-color: #a040a0;
+}
+
+#ground {
+    background-color: #e0c068;
+}
+
+#rock {
+    background-color: #cfbd73;
+}
+
+#bug {
+    background-color: #cddd21;
+}
+
+#ghost {
+    background-color: #7773d2;
+}
+
+#steel {
+    background-color: #c4c2d8;
+}
+
+#fire {
+    background-color: #fb5643;
+}
+
+#water {
+    background-color: #55aefe;
+}
+
+#grass {
+    background-color: #8cd850;
+}
+
+#electric {
+    background-color: #fce53d;
+}
+
+#psychic {
+    background-color: #f562b2;
+}
+
+#ice {
+    background-color: #95f1fe;
+}
+
+#dragon {
+    background-color: #8975fb;
+}
+
+#dark {
+    background-color: #866450;
+}
+
+#fairy {
+    background-color: #8975fb;
+}
+
+
+body{
+    background-color: #c1c1c1;
+}
+
+.box-content {
+    padding: 1rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: 100vh;
+    width: 30%;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.moldura{
+    min-height: 70vh;
+    max-height: 100vh;
+    background-color: #8cd850;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* height: 50vh; */
+}
+
+.line-top {
+    display: flex;
+    justify-content:space-between;
+    padding: 3rem 2rem 1rem 2rem;
+    height: 1rem;
+}
+
+
+.line-1 {
+
+}
+
+.info-top {
+    display: flex;
+    justify-content:space-around;
+    padding: 1rem;
+    height: 1rem;
+}
+
+.boxName{
+    text-transform: uppercase;
+    text-shadow: 1rem;
+    font-weight: bold;
+}
+
+.namePoke{
+    color: rgb(255, 255, 255);
+}
+
+.boxNumber{
+
+}
+
+.numberPoke{
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+
+.info-med {
+
+}
+
+.types {
+    padding: 1em 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.type {
+    color: #f1f1f1;
+    background-color: #8cd850cd;
+    width: 5rem;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: 1rem;
+    border-radius: 1rem;
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bold;
+    filter: brightness(1.1);
+    
+}
+
+.line-2 {
+
+}
+
+.box-imagem{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -12px;
+    /* width: 50vh; */
+}
+.pokeImg{
+    width: 50%;
+
+}
+
+.line-3 {
+    background-color: #f1f1f1;
+    border-radius: 2rem 2rem 1rem 1rem ;
+    margin: 0;
+    flex: 1;
+}
+
+.info-down{
+
+}
+
+.tab-buttons {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tab-buttons button {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5f5f5f;
+}
+
+.tab-buttons button:hover {
+    background-color: #e6e6e6;
+    color: rgb(44, 139, 184);
+}
+
+#info-about {
+    display: none;
+    text-transform: capitalize;
+    justify-content: center;
+}
+
+.about {
+    padding: 0rem;
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    text-align: justify;
+}
+
+.infos-tabs {
+    padding: 1rem;
+}
+
+#info-stats {
+    text-transform: capitalize;
+    justify-content: left;
+    display: none;
+    
+}
+
+.stats {
+    list-style: none;
+    padding: 0rem;
+    /* font-weight: bold; */
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    
+}
+
+#info-abilities {
+    text-transform: capitalize;
+    justify-content: left;
+    display: none;
+}
+
+.abilities {
+    list-style: none;
+    padding: 0rem;
+    /* font-weight: bold; */
+    color: #000000;
+    font-family: monospace,monospace;
+    font-size: 1em;
+    
+}
+
+   /* Media-querry */
+
+
+
+@media screen and (min-width: 320px) and (max-width: 426px){
+    .box-content {
+        padding: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+        height: 90vh;
+        width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+    }  
+    /* .moldura {
+        align-items: center;
+    } */
+}
+
+/* .box-content .box-imagem{
+    min-height: 100%;
+    max-height: 100%;
+} */
+
+/* .name {
+    text-transform: uppercase;
+    border-radius: 1rem;
+    background-color: aqua;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    border-radius: 1rem;
+} */
