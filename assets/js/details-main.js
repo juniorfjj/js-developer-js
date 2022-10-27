@@ -40,9 +40,9 @@ async function getData() {
     var liInfoStatsDefense = pokemon.stats[2].base_stat
     var liInfoStatsSpeed = pokemon.stats[5].base_stat
 
-    const statsInsert = 
-    
-    `<ol class="stats">
+    const statsInsert =
+
+        `<ol class="stats">
     <li>
         HP : ${liInfoStatsHP}
     </li>
@@ -57,10 +57,22 @@ async function getData() {
     </li>
     </ol>`
 
+    const abilitieOne = pokemon.abilities[0].ability.name
+    const abilitieTwo = pokemon.abilities[1].ability.name
 
 
-    // console.log(getTypes)
-    // console.log(getTypeColor)
+
+    const abilitiesInsert =
+        `
+    <ol class="abilities">
+        <li>
+            ${abilitieOne}
+        </li>
+        <li>
+            ${abilitieTwo}
+        </li>
+    </ol>
+    `
 
 
     namePoke.innerHTML += name
@@ -68,6 +80,7 @@ async function getData() {
     pokeImg.innerHTML += photo
     pokeType.innerHTML += getTypes
     infoStats.innerHTML += statsInsert
+    infoAbilities.innerHTML += abilitiesInsert
 
 
 
@@ -80,6 +93,13 @@ async function getData() {
 getData();
 
 
+
+
+
+
+
+
+
 // Exibindo informações na TAB
 
 // Buscando as áreas onde as informações são exibidas na página
@@ -87,15 +107,11 @@ getData();
 const infoAbout = document.getElementById("info-about");
 
 
-
 async function getInfosTab() {
     const pokeInfos = await fetch(infoTabUrl);
     const infoAssets = await pokeInfos.json();
 
     var textInfoAbout = `<span class="about">${infoAssets.flavor_text_entries[0].flavor_text}</span>`
-
-    console.log(infoAssets.flavor_text_entries[0].flavor_text)
-
 
     infoAbout.innerHTML += textInfoAbout
 
